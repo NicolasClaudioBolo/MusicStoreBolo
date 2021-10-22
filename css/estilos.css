@@ -1,0 +1,53 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+/* DISEÑO PRELIMINAR. TODAVÍA NO TENGO UNA PALETA DE COLORES SELECCIONADA. FALTA UN MOCK UP. */
+
+body {
+    background-color: black;
+    height:100vh;
+}
+
+.header__encabezado__estilo{
+    text-align: center;
+    background-image: linear-gradient(red, rgb(221, 144, 144), red);
+    display: block;
+    padding: 20px;
+}
+
+h1{
+    margin-top: 2%;
+}
+
+.footer__pie__estilo{
+    text-align: center;
+    background-image: linear-gradient(#fff, rgb(221, 144, 144), red, rgb(221, 144, 144), #fff);
+    display: block;
+    height: 15vh;
+}
+
+/* .div__galeria__grilla{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+} */
+
+.foto__img__tamaño{
+    width: 242px;
+    height: auto;
+    border-radius: 15%;
+    margin:2%;
+}
+
+.negrita{
+    font-weight: 900;
+    font-size: 18px;
+    font-family: monospace;
+    padding-top: 25px;
+}
+
+li{
+    color:white;
+}
