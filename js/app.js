@@ -18,19 +18,13 @@ function agregarProducto(e) {
         const eleccion = {
             marca: decision.querySelector('h4').textContent,
             modelo: decision.querySelector('h5').textContent,
-            precio: decision.querySelector('span').textContent,
-
-            //NO ME LEE src Y NO SÉ POR QUÉ
-
-            imagen: decision.querySelector('img').src,
-
-            //EN LA LÍNEA 25 ESTÁ EL BUG
-
+            precio: decision.querySelector('p').textContent,
+            imagen: decision.previousElementSibling.querySelector('img').src,
             id: decision.querySelector('a').getAttribute('data-id')
 
         }
 
-        console.log(decision);
+        console.log(eleccion);
     };
 }
 
@@ -43,7 +37,7 @@ function renderProductos(productos) {
             <div>
                 <h4>${producto.Marca}</h4>
                 <h5>${producto.Modelo}</h5>
-                <p>$2000<span>${producto.precio}</span></p>
+                <p>${producto.Precio}</p>
                 <a href="#" class="agregar-carrito" data-id="${producto.id}">Agregar al carrito</a>
             </div>
             
