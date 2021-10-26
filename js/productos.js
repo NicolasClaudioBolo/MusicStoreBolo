@@ -1,15 +1,38 @@
-// LA CONSOLA ME TIRA "false" CUANDO ELIJO IMÁGENES. PROBÉ CAMBIANDO EL CONTENIDO DE LA FUNCIÓN DE LA LÍNEA 7 PERO NO FUNCIONÓ.
-
-const Cart = document.querySelector('#Cart');
-
-const listaProductos = document.querySelector('#agregar-carrito')
-
-function agregarProducto(e) {
-    e.preventDefault();
-    console.log(e.target.classList.contains("agregar-carrito"));
-}
-
-listaProductos.addEventListener('click', agregarProducto)
-
-$("img").hide()
-$("img").fadeIn(3000);
+const productos = [
+    {"Marca": "Gibson",
+     "Modelo": "Les Paul",
+     "Precio": 2000,
+     "id": 1,
+     "imagen": "img/GibsonLesPaul.png"
+    },
+    {"Marca": "Fender",
+     "Modelo": "Jazz Bass",
+     "Precio": 1500,
+     "id": 2,
+     "imagen": "img/FenderJazzBass.png"
+    },
+    {"Marca": "Fender",
+     "Modelo": "Telecaster",
+     "Precio": 1400,
+     "id": 3,
+     "imagen": "img/FenderTelecaster.png"
+    },
+    {"Marca": "Gretsch",
+     "Modelo": "Gme824p Marquee",
+     "Precio": 1000,
+     "id": 4,
+     "imagen": "img/Gretsch.png"
+    },
+    {"Marca": "Steinway & Sons",
+     "Modelo": "Negro",
+     "Precio": 60000,
+     "id": 5,
+     "imagen": "img/Steinway.png"
+    },
+    {"Marca": "Lacquer Mayer",
+     "Modelo": "Gold Alto",
+     "Precio": 400,
+     "id": 6,
+     "imagen": "img/Saxo.png"
+    },
+]

@@ -1,76 +1,53 @@
-// function sumardos (x, y) {return x + y};
-// function sumartres (x, y, z) {return x + y + z};
+document.addEventListener('DOMContentLoaded', () =>{
+    renderProductos(productos);
+})
 
-function producto (marca, modelo, precio){
-    this.marca = marca;
-    this.modelo = modelo;
-    this.precio = precio;
-  }
+$("img").hide()
+$("img").fadeIn(3000);
 
-const LesPaul = new producto("Gibson", "Les Paul", 2000);
-const JazzBass = new producto("Fender", "Jazz Bass", 1500);
-const Telecaster = new producto("Fender", "Telecaster", 1400);
-const Gretsch = new producto ("Gretsch", "Gme824p Marquee", 1000);
-const Steinway = new producto ("Steinway & Sons", "Negro", 60000);
-const Saxo = new producto ("Lacquer Mayer", "Gold Alto", 400);
+const listaProductos = document.querySelector('#lista-productos');
 
-let Instrumentos = [LesPaul, JazzBass, Telecaster, Gretsch, Steinway, Saxo];
+let cart = [];
 
-// ESTE CÓDIGO ANDABA PERO DECIDÍ RESUMIRLO EN productos.js, Y MOVÍ PARTE DEL MISMO A ESE ARCHIVO.
+listaProductos.addEventListener('click', agregarProducto)
 
-// const button1 = document.querySelector('#item1');
-// const button2 = document.querySelector('#item2');
-// const button3 = document.querySelector('#item3');
-// const button4 = document.querySelector('#item4');
-// const button5 = document.querySelector('#item5');
-// const button6 = document.querySelector('#item6');
+function agregarProducto(e) {
+    e.preventDefault();
+    if(e.target.classList.contains("agregar-carrito")){
+        const decision = e.target.parentElement;
+        const eleccion = {
+            marca: decision.querySelector('h4').textContent,
+            modelo: decision.querySelector('h5').textContent,
+            precio: decision.querySelector('span').textContent,
 
-// const Lista = document.querySelector('#lista');
+            //NO ME LEE src Y NO SÉ POR QUÉ
 
+            imagen: decision.querySelector('img').src,
 
-// button1.addEventListener('click', () => {
-//     const input = document.createElement('li');
-//     input.textContent = (LesPaul.marca + " " + LesPaul.modelo);
-//     Cart.appendChild(input);
-// });
+            //EN LA LÍNEA 25 ESTÁ EL BUG
 
-// button2.addEventListener('click', () => {
-//   const input = document.createElement('li');
-//   input.textContent = (JazzBass.marca + " " + JazzBass.modelo);
-//   Cart.appendChild(input);
-// });
+            id: decision.querySelector('a').getAttribute('data-id')
 
-// button3.addEventListener('click', () => {
-//   const input = document.createElement('li');
-//   input.textContent = (Telecaster.marca + " " + Telecaster.modelo);
-//   Cart.appendChild(input);
-// });
+        }
 
-// button4.addEventListener('click', () => {
-//   const input = document.createElement('li');
-//   input.textContent = (Gretsch.marca + " " + Gretsch.modelo);
-//   Cart.appendChild(input);
-// });
+        console.log(decision);
+    };
+}
 
-// button5.addEventListener('click', () => {
-//   const input = document.createElement('li');
-//   input.textContent = (Steinway.marca + " " + Steinway.modelo);
-//   Cart.appendChild(input);
-// });
-
-// button6.addEventListener('click', () => {
-//   const input = document.createElement('li');
-//   input.textContent = (Saxo.marca + " " + Saxo.modelo);
-//   Cart.appendChild(input);
-// });
-
-// const total = document.querySelector("#total");
-
-// const resultado = document.querySelector("#resultado");
-
-// total.addEventListener('click', () => {
-//   const input = document.createElement('li');
-//   input.textContent = (precio);
-//   Cart.appendChild(input);
-// });
-
+function renderProductos(productos) {
+    productos.forEach(producto => {
+        const html = `
+            <div class="div__galeria__grilla mt-5">
+                <img src="${producto.imagen}" class="col-md-2 col-sm-4 col-8 foto__img__tamaño img-fluid">
+            </div>
+            <div>
+                <h4>${producto.Marca}</h4>
+                <h5>${producto.Modelo}</h5>
+                <p>$2000<span>${producto.precio}</span></p>
+                <a href="#" class="agregar-carrito" data-id="${producto.id}">Agregar al carrito</a>
+            </div>
+            
+            `
+            listaProductos.innerHTML += html;
+    });
+}
