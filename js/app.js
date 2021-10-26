@@ -1,61 +1,5 @@
-// let LesPaul = Number(2000)
-// let JazzBass = Number (1500)
-// let Telecaster = Number (1400)
-// let Gretsch = Number(1000)
-// let Steinway = Number(60000)
-// let Saxo = Number(400)
-
-// alert("Elige uno o más productos que desees comprar, separando los números en orden ascendente. Ejemplo: 1 2, para los productos Uno y Dos.")
-
-// ("1-Gibson Les Paul 2-Fender Jazz Bass 3-Fender Telecaster 4-Gretsch Gme824p Marquee.")
-
-function sumardos (x, y) {return x + y};
-function sumartres (x, y, z) {return x + y + z};
-
-// EL USO DE "if" SERÁ REEMPLAZADO POR UN ARRAY DE OBJETOS CON ID, PARA LLEGAR A UNA SOLUCIÓN ESCALABLE.
-// VOY A INCORPORAR LAS FUNCIONES "sumardos" Y "sumartres" A MEDIDA QUE VAYA AVANZANDO.
-// EL PRECIO SERÁ PASADO A DÓLARES PARA MANEJAR CIFRAS MÁS PEQUEÑAS Y REDUCIR EL MARGEN DE ERROR.
-
-// if (producto == 1) {
-//     alert("Precio: " + LesPaul);
-//     } 
-//     else { if (producto == 2) {
-//     alert("Precio: " + JazzBass);
-//     } 
-//     else { if (producto == 3) {
-//     alert("Precio: " + Telecaster);
-//     }
-//     else { if (producto == 4) {
-//     alert("Precio: " + Gretsch);
-//     }
-//     else { if (producto == "1 2") {
-//     alert("Precio: " + sumardos(LesPaul, JazzBass));
-//     }
-//     else { if (producto == "1 3") {
-//     alert("Precio: " + sumardos(LesPaul, Telecaster));
-//     }
-//     else { if (producto == "1 4") {
-//     alert("Precio: " + sumardos(LesPaul, Gretsch));
-//     }
-//     else { if (producto == "2 3") {
-//     alert("Precio: " + sumardos(JazzBass, Telecaster));
-//     }
-//     else { if (producto == "2 4") {
-//     alert("Precio: " + sumardos(JazzBass, Gretsch));
-//     }
-//     else { if (producto == "3 4") {
-//     alert("Precio: " + sumardos(Telecaster, Gretsch));
-//     }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
+// function sumardos (x, y) {return x + y};
+// function sumartres (x, y, z) {return x + y + z};
 
 function producto (marca, modelo, precio){
     this.marca = marca;
@@ -72,14 +16,7 @@ const Saxo = new producto ("Lacquer Mayer", "Gold Alto", 400);
 
 let Instrumentos = [LesPaul, JazzBass, Telecaster, Gretsch, Steinway, Saxo];
 
-// function carrito (LesPaul, JazzBass, Telecaster, Gretsch, Steinway, Saxo){
-//   this.item1 = LesPaul;
-//   this.item2 = JazzBass;
-//   this.item3 = Telecaster;
-//   this.item4 = Gretsch;
-//   this.item5 = Steinway;
-//   this.item6 = Saxo;
-// };
+// ESTE CÓDIGO ANDABA PERO DECIDÍ RESUMIRLO EN productos.js, Y MOVÍ PARTE DEL MISMO A ESE ARCHIVO.
 
 // const button1 = document.querySelector('#item1');
 // const button2 = document.querySelector('#item2');
