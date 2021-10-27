@@ -57,3 +57,13 @@ li{
 .agregar-carrito{
     font-size: large;
 }
+
+table{
+    color: white;
+}
+
+div{
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
