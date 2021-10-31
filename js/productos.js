@@ -34,5 +34,5 @@ const productos = [
      "Precio": 400,
      "id": 6,
      "imagen": "img/Saxo.png"
-    },
+    }
 ]

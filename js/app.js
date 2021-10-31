@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     renderProductos(productos);
 })
 
-$("img").hide()
-$("img").fadeIn(3000);
-
 const listaCart = document.querySelector('#listaCart')
 
 const listaProductos = document.querySelector('#lista-productos');
@@ -31,13 +28,19 @@ function agregarProducto(e) {
         cart.push(eleccion);
         console.log(cart)
         actualizarCart()
+        const almacenamiento = localStorage.setItem(eleccion.modelo, eleccion.precio);
+        function getStorage (){return localStorage.getItem(eleccion.modelo, eleccion.precio)}
+
+        getStorage();
     };
 }
 
+
 function actualizarCart(){
+    listaCart.innerHTML = '';
     cart.forEach(producto =>{
     const fila = document.createElement('tr');
-        fila.innerHTML = 
+        fila.innerHTML += 
         `<td>
             ${producto.marca}
         </td>
@@ -48,7 +51,7 @@ function actualizarCart(){
             ${producto.precio}
         </td> `
 
-        listaCart.appendChild(fila)
+        listaCart.appendChild(fila);
 
         }
     )
@@ -69,3 +72,8 @@ function renderProductos(productos) {
             listaProductos.innerHTML += html;
     });
 }
+
+$("img").hide();
+$("img").fadeIn(3000);
+
+// TODO: llamar a los objetos del archivo JSON
