@@ -15,11 +15,12 @@ function agregarProducto(e) {
     if(e.target.classList.contains("agregar-carrito")){
         const decision = e.target.parentElement;
         const eleccion = {
-            marca: decision.querySelector('h4').textContent,
-            modelo: decision.querySelector('h5').textContent,
-            precio: decision.querySelector('p').textContent,
             imagen: decision.querySelector('img').src,
-            id: decision.querySelector('a').getAttribute('data-id')
+            modelo: decision.querySelector('h5').textContent,
+            marca: decision.querySelector('h4').textContent,
+            precio: decision.querySelector('p').textContent,
+            
+            id: decision.querySelector('button').getAttribute('data-id')
 
         }
 
@@ -60,12 +61,12 @@ function actualizarCart(){
 function renderProductos(productos) {
     productos.forEach(producto => {
         const html = `
-            <div class="mt-5">
+            <div class="mt-5 col-md-2 col-sm-4 col-8">
                 <img src="${producto.imagen}" class="col-md-2 col-sm-4 col-8 foto__img__tamaño img-fluid">
                 <h4>${producto.Marca}</h4>
                 <h5>${producto.Modelo}</h5>
-                <p>${producto.Precio}</p>
-                <a href="#" class="agregar-carrito" data-id="${producto.id}">Agregar al carrito</a>
+                <p>$ ${producto.Precio}</p>
+                <button type="button" class="btn agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
             </div>
             
             `
@@ -73,7 +74,9 @@ function renderProductos(productos) {
     });
 }
 
+let suma = cart.reduce(function(a, b){ return a.producto.Precio + b.producto.Precio; }, 0); 
+
+console.log(suma)
+
 $("img").hide();
 $("img").fadeIn(3000);
-
-// TODO: llamar a los objetos del archivo JSON

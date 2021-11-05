@@ -14,7 +14,6 @@ body {
     text-align: center;
     background-image: linear-gradient(red, rgb(221, 144, 144), red);
     display: block;
-    padding: 20px;
 }
 
 h1{
@@ -22,10 +21,11 @@ h1{
 }
 
 .footer__pie__estilo{
+    color: white;
     text-align: center;
-    background-image: linear-gradient(#fff, rgb(221, 144, 144), red, rgb(221, 144, 144), #fff);
+    background-image:linear-gradient(rgb(151, 8, 8), rgb(221, 144, 144));
     display: block;
-    height: 15vh;
+    height: 5vh;
 }
 
 .foto__img__tamaño{
@@ -49,6 +49,17 @@ h3{
     font-size: 20px;
 }
 
+h4{
+    color: rgb(255, 145, 145);
+}
+h5{
+    color: rgb(255, 93, 93);
+}
+
+p{
+    color: greenyellow;
+}
+
 li{
     color:white;
     text-align: center;
@@ -59,6 +70,7 @@ li{
 }
 
 table{
+    background-color: rgb(247, 44, 44);
     color: white;
     width: 30%;
 }
@@ -67,4 +79,28 @@ div{
     text-align: center;
     justify-content: center;
     justify-items: center;
+}
+
+.fondo{
+    background-position-x: center;
+    background-size:200vh;
+}
+
+.btn{
+    background-color: rgb(151, 8, 8);
+    border-style: none;
+    color: rgb(255, 198, 198);
+    transition: none;
+}
+
+.btn:hover{
+    color: greenyellow;
+}
+
+.btn:checked{
+    border-style: none;
+}
+
+.aviso{
+    background-image:linear-gradient(  red, red, rgb(151, 8, 8), rgb(151, 8, 8), rgb(247, 44, 44));
 }
