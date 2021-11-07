@@ -68,8 +68,12 @@ function agregarProducto(e) {
         cart.push(eleccion);
         actualizarCart()
         operacion.push(eleccion)
-        operacion.forEach(productos =>{
-            total = productos.Precio
+        operacion.forEach(producto =>{
+            let arrProd = producto.precio.split('')
+            arrProd.shift()
+            let precioEnNum = parseFloat(arrProd.join(''))
+            console.log(precioEnNum)
+            total = producto.precio
             }
         );
     
