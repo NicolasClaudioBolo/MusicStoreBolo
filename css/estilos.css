@@ -8,24 +8,29 @@
 body {
     background-color: black;
     height:100vh;
+    overflow-x: hidden;
 }
 
 .header__encabezado__estilo{
-    text-align: center;
     background-image: linear-gradient(red, rgb(221, 144, 144), red);
-    display: block;
+    width: 50%;
+    margin-left: 25%;
 }
 
 h1{
     margin-top: 2%;
+    color: rgb(15, 15, 15);
+    font-weight: 999;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
 }
 
 .footer__pie__estilo{
     color: white;
     text-align: center;
-    background-image:linear-gradient(rgb(151, 8, 8), rgb(221, 144, 144));
-    display: block;
-    height: 5vh;
+    background-image:linear-gradient( rgb(221, 144, 144), rgb(151, 8, 8));
+    height: 15vh;
+    width: 100vw;
 }
 
 .foto__img__tamaño{
@@ -77,8 +82,6 @@ table{
 
 div{
     text-align: center;
-    justify-content: center;
-    justify-items: center;
 }
 
 .fondo{
@@ -103,4 +106,25 @@ div{
 
 .aviso{
     background-image:linear-gradient(  red, red, rgb(151, 8, 8), rgb(151, 8, 8), rgb(247, 44, 44));
+}
+
+.container-fluid{
+    width: 100%;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.icono__img__tamaño{
+    padding-top: 10px;
+    height: 40px;
+    width: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 20px;
+}
+
+.logo__img__tamaño{
+    height:150px;
+    width: auto;
 }

@@ -49,10 +49,13 @@ let cart = [];
 
 let operacion = [];
 
+let totalGlobal = 0
+
 listaProductos.addEventListener('click', agregarProducto)
 
 function agregarProducto(e) {
     e.preventDefault();
+    let total = 0
     if(e.target.classList.contains("agregar-carrito")){
         const decision = e.target.parentElement;
         const eleccion = {
@@ -67,22 +70,25 @@ function agregarProducto(e) {
 
         cart.push(eleccion);
         actualizarCart()
+
         operacion.push(eleccion)
         operacion.forEach(producto =>{
             let arrProd = producto.precio.split('')
             arrProd.shift()
             let precioEnNum = parseFloat(arrProd.join(''))
-            console.log(precioEnNum)
-            total = producto.precio
+            total = total + precioEnNum
             }
         );
-    
+
         const almacenamiento = localStorage.setItem(eleccion.modelo, eleccion.precio);
         function getStorage (){return localStorage.getItem(eleccion.modelo, eleccion.precio)}
 
         getStorage();
+        totalGlobal = total
+        console.log(totalGlobal)
     };
 }
+
 
 function actualizarCart(){
     listaCart.innerHTML = '';
