@@ -45,11 +45,15 @@ const listaCart = document.querySelector('#listaCart')
 
 const listaProductos = document.querySelector('#lista-productos');
 
+const total = document.querySelector('#resulCart')
+
 let cart = [];
 
 let operacion = [];
 
 let totalGlobal = 0
+
+
 
 listaProductos.addEventListener('click', agregarProducto)
 
@@ -69,44 +73,50 @@ function agregarProducto(e) {
         }
 
         cart.push(eleccion);
-        actualizarCart()
+        
 
         operacion.push(eleccion)
         operacion.forEach(producto =>{
-            let arrProd = producto.precio.split('')
-            arrProd.shift()
-            let precioEnNum = parseFloat(arrProd.join(''))
+            const precioEnNum = parsearPrecio(producto)
             total = total + precioEnNum
             }
         );
 
         const almacenamiento = localStorage.setItem(eleccion.modelo, eleccion.precio);
-        function getStorage (){return localStorage.getItem(eleccion.modelo, eleccion.precio)}
 
-        getStorage();
         totalGlobal = total
-        console.log(totalGlobal)
+
+        actualizarCart()
+        actualizarTotal()
     };
+}
+
+function parsearPrecio(producto) {
+    let arrProd = producto.precio.split('')
+    arrProd.shift()
+    return parseFloat(arrProd.join(''))
 }
 
 
 function actualizarCart(){
     listaCart.innerHTML = '';
-    cart.forEach(producto =>{
+    cart.forEach((producto, index) =>{
     const fila = document.createElement('tr');
         fila.innerHTML += 
-        `<td>
+        `<td class="letra__celda__tamaño">
             ${producto.marca}
         </td>
-        <td>
+        <td class="letra__celda__tamaño">
             ${producto.modelo}
         </td>
-        <td>
+        <td class="letra__celda__tamaño">
             ${producto.precio}
+        </td> 
+        <td class="letra__celda__tamaño">
+            <img src="./img/bin.png" class="icono__img__tamaño mb-4" id="basura" onclick="borrarProducto(${index})">
         </td> `
 
         listaCart.appendChild(fila);
-
         }
     )
 }
@@ -126,6 +136,39 @@ function renderProductos(productos) {
             listaProductos.innerHTML += html;
     });
 }
+
+
+function borrarProducto(index) {
+    const productRemoved = cart[index]
+    cart.splice(index, 1) // lo saco del cart
+    operacion.splice(index, 1)
+
+    listaCart.removeChild(listaCart.childNodes[index]); // lo saco del html
+    
+    totalGlobal -= parsearPrecio(productRemoved) // resto al total
+    actualizarTotal() // refreco total en html
+}   
+
+
+function actualizarTotal(){
+
+    total.removeChild(total.lastChild)
+    const resultado = document.createElement('tr');
+    resultado.innerHTML = 
+        '<td>' + totalGlobal + '</td>'
+        total.appendChild(resultado)
+}
+
+// const item = document.querySelector("tr")
+
+
+
+// document.addEventListener("click", function(){
+//     basura.innerHTML =
+//     basura.removeChild(item)
+
+//     }
+// );
 
 $("img").hide();
 $("img").fadeIn(3000);

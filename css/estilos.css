@@ -128,3 +128,12 @@ div{
     height:150px;
     width: auto;
 }
+
+.letra__celda__tamaño{
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+td{
+    width: min-content;
+}
