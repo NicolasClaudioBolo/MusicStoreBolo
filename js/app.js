@@ -37,15 +37,28 @@ const productos = [
     }
 ]
 
+
+// RENDERIZACIÓN DEL DOM, CON EL ARRAY DE OBJETOS "productos" EN CONSOLA
+
 document.addEventListener('DOMContentLoaded', () =>{
     renderProductos(productos);
 })
 
+// LISTA DEL CARRITO
+
 const listaCart = document.querySelector('#listaCart')
+
+
+//LISTA DE LOS PRODUCTOS EN PANTALLA AL CARGAR EL SITIO WEB
 
 const listaProductos = document.querySelector('#lista-productos');
 
+
+// SELECTOR PARA EL RESULTADO DE LA SUMA DE LOS ITEMS DEL CARRITO
+
 const total = document.querySelector('#resulCart')
+
+// ARRAY DE PRODUCTOS EN EL CARRITO, ARRAY DE SUS PRECIOS PARA OPERAR, Y VARIABLE GLOBAL DEL TOTAL DE LA SUMA DE LOS PRODUCTOS DEL CARRITO
 
 let cart = [];
 
@@ -54,6 +67,7 @@ let operacion = [];
 let totalGlobal = 0
 
 
+// FUNCIÓN PARA AGREGAR UN PRODUCTO HACIENDO CLICK SOBRE EL MISMO, MOSTRÁNDOLO EN LA LISTA DEL CARRITO CON TODOS LOS VALORES DEL OBJETO EN CUESTIÓN
 
 listaProductos.addEventListener('click', agregarProducto)
 
@@ -91,12 +105,17 @@ function agregarProducto(e) {
     };
 }
 
+
+// FUNCIÓN PARA PASAR A NÚMERO EL STRING DE PRECIO, EVITANDO EL CARACTER "$"
+
 function parsearPrecio(producto) {
     let arrProd = producto.precio.split('')
     arrProd.shift()
     return parseFloat(arrProd.join(''))
 }
 
+
+// FUNCIÓN PARA PREVENIR QUE SE VUELVA A AGREGAR LO QUE EL USUARIO YA HA SELECCIONADO PREVIAMENTE PARA EL CARRITO
 
 function actualizarCart(){
     listaCart.innerHTML = '';
@@ -121,6 +140,9 @@ function actualizarCart(){
     )
 }
 
+
+// RENDERIZACIÓN DE LOS PRODUCTOS EN EL DOM
+
 function renderProductos(productos) {
     productos.forEach(producto => {
         const html = `
@@ -138,17 +160,21 @@ function renderProductos(productos) {
 }
 
 
+// FUNCIÓN PARA BORRAR PRODUCTO DEL CARRITO
+
 function borrarProducto(index) {
     const productRemoved = cart[index]
-    cart.splice(index, 1) // lo saco del cart
+    cart.splice(index, 1) // SACAR DEL CARRITO
     operacion.splice(index, 1)
 
-    listaCart.removeChild(listaCart.childNodes[index]); // lo saco del html
+    listaCart.removeChild(listaCart.childNodes[index]); // SACAR DEL HTML
     
-    totalGlobal -= parsearPrecio(productRemoved) // resto al total
-    actualizarTotal() // refreco total en html
+    totalGlobal -= parsearPrecio(productRemoved) // RESTAR AL TOTAL
+    actualizarTotal() // REFRESCAR TOTAL EN HTML
 }   
 
+
+// FUNCIÓN PARA MOSTRAR EL TOTAL GLOBAL ACTUALIZADO SIN QUE SE SUMEN PRECIOS DE PRODUCTOS PREVIAMENTE SELECCIONADOS
 
 function actualizarTotal(){
 
@@ -159,16 +185,8 @@ function actualizarTotal(){
         total.appendChild(resultado)
 }
 
-// const item = document.querySelector("tr")
 
-
-
-// document.addEventListener("click", function(){
-//     basura.innerHTML =
-//     basura.removeChild(item)
-
-//     }
-// );
+// ANIMACIÓN DE FADE IN PARA LAS IMÁGENES COLOCADAS DESDE EL HTML
 
 $("img").hide();
 $("img").fadeIn(3000);

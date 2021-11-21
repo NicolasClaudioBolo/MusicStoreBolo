@@ -137,3 +137,13 @@ div{
 td{
     width: min-content;
 }
+
+.tamaño__cart{
+    padding-top: 10px;
+    height: 60px;
+    width: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
